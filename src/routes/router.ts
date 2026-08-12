@@ -1,11 +1,16 @@
 import { Router, Request, Response } from "express";
-import { fetchBooksFromOL } from "../services/openLibraryService";
+import { MergeBooks } from "../services/mergeBooksService";
 
 const router = Router()
 
 router.get('/get-books', async (req: Request, res: Response) => {
     try {
-        await fetchBooksFromOL(req, res)
+        const books = await MergeBooks()
+
+        return res.status(200).json({
+            success: true,
+            books: books
+        });
     } catch (error) {
         const err = error as Error;
 
