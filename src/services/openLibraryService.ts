@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const fetchBooksFromOL = async () => {
-    const limit = process.env.MAXBOOKS || 10
+    const limit = process.env.MAX_BOOKS || 10
     const openLibraryUrl = `https://openlibrary.org/search.json?q=has_fulltext:true&limit=${limit}`;
 
     const response = await axios.get(openLibraryUrl)
