@@ -6,7 +6,7 @@ export const fetchGoogleRating = async (book: Book) => {
     const apiKey = process.env.GOOGLE_BOOKS_API_KEY;
     if (!apiKey) return null;
 
-    const rawAuthor = book.authors?.[0] || "";
+    const rawAuthor = book.author_name?.[0] || "";
     const cleanAuthor = sanitizeAuthor(rawAuthor);
     const cleanTitle = book.title.replace(/[^\w\s]/gi, " ").replace(/\s+/g, " ").trim();
 
@@ -33,7 +33,7 @@ export const fetchGoogleRating = async (book: Book) => {
     }
 
     if (book.isbn) {
-        const rating = await getRatingFromQuery(`isbn:${book.isbn}`);
+        const rating = await getRatingFromQuery(`isbn:${book.isbn?.[0]}`);
         if (rating !== null) return rating;
     }
 
