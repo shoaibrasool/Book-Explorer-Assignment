@@ -5,7 +5,8 @@ const router = Router()
 
 router.get('/get-books', async (req: Request, res: Response) => {
     try {
-        const books = await MergeBooks()
+        const offset = Number(req.query.offset) || 0
+        const books = await MergeBooks(offset)
 
         return res.status(200).json({
             success: true,

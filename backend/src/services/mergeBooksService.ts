@@ -2,8 +2,8 @@ import { Book, RatedBook } from "../types/types";
 import { fetchGoogleRating } from "./googleRatingService";
 import { fetchBooksFromOL } from "./openLibraryService";
 
-export const MergeBooks = async () => {
-    const rawBooks = await fetchBooksFromOL()
+export const MergeBooks = async (offset = 0) => {
+    const rawBooks = await fetchBooksFromOL(offset)
 
     const mergedBooks: RatedBook[] = await Promise.all(
         rawBooks.map(async (book: Book) => {
