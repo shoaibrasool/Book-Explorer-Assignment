@@ -12,7 +12,7 @@ export const fetchGoogleRating = async (book: Book) => {
 
     const getRatingFromQuery = async (query: string) => {
         try {
-            const url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&key=${apiKey}`;
+            const url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&maxResults=40&key=${apiKey}`;
             const response = await axios.get(url, { timeout: 4000 });
             const items = response.data?.items || [];
 
@@ -28,7 +28,7 @@ export const fetchGoogleRating = async (book: Book) => {
     };
 
     if (cleanAuthor && cleanAuthor.toLowerCase() !== cleanTitle.toLowerCase()) {
-        const rating = await getRatingFromQuery(`${cleanTitle} ${cleanAuthor}`);
+        const rating = await getRatingFromQuery(`intitle:${cleanTitle} inauthor:${cleanAuthor}`);
         if (rating !== null) return rating;
     }
 
