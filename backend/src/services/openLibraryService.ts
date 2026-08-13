@@ -3,7 +3,7 @@ import axios from "axios";
 const SUBJECTS = ['fantasy', 'science_fiction', 'mystery', 'romance', 'history', 'biography', 'horror']
 
 export const fetchBooksFromOL = async (offset = 0) => {
-    const limit = process.env.MAX_BOOKS || 10
+    const limit = process.env.MAX_BOOKS || 8
     const page = Math.floor(offset / Number(limit))
     const subject = SUBJECTS[page % SUBJECTS.length]
     const openLibraryUrl = `https://openlibrary.org/search.json?q=subject:${subject}&sort=rating&language=eng&limit=${limit}&offset=${offset}&fields=key,title,author_name,first_publish_year,cover_i,isbn`;

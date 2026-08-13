@@ -2,19 +2,19 @@ const baseURL = 'http://localhost:4000'
 const CACHE_TTL_MS = 30 * 60 * 1000;
 
 const loadFromStorage = (offset) => {
-    const cached = localStorage.getItem(`books-${offset}`);
+    const cached = localStorage.getItem(`books-v2-${offset}`);
     if (!cached) return null;
 
     const { books, savedAt } = JSON.parse(cached);
     if (Date.now() - savedAt > CACHE_TTL_MS) {
-        localStorage.removeItem(`books-${offset}`);
+        localStorage.removeItem(`books-v2-${offset}`);
         return null;
     }
     return books;
 };
 
 const saveToStorage = (offset, books) => {
-    localStorage.setItem(`books-${offset}`, JSON.stringify({
+    localStorage.setItem(`books-v2-${offset}`, JSON.stringify({
         books,
         savedAt: Date.now(),
     }));
