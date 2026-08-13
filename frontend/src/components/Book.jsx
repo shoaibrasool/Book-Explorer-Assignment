@@ -1,11 +1,21 @@
 import './Book.css';
 
+const renderStars = (rating) => {
+    const filledStars = Math.round(rating);
+    const emptyStars = 5 - filledStars;
+    return '★'.repeat(filledStars) + '☆'.repeat(emptyStars);
+};
+
 export const Book = ({ book }) => {
     const { title, authors, firstPublishYear, coverImage, averageRating } = book;
 
     return (
         <div className="card">
-            <img src={coverImage} alt={title} className="cover" />
+            {coverImage ? (
+                <img src={coverImage} alt={title} className="cover" />
+            ) : (
+                <div className="coverPlaceholder">{title}</div>
+            )}
 
             <div className="content">
                 <h3 className="title">{title}</h3>
@@ -20,7 +30,10 @@ export const Book = ({ book }) => {
 
                 <p className="rating">
                     {averageRating ? (
-                        <span>{'\u2B50'} {averageRating}/5</span>
+                        <>
+                            <span className="stars">{renderStars(averageRating)}</span>
+                            <span className="ratingValue">{averageRating.toFixed(1)} / 5</span>
+                        </>
                     ) : (
                         'No rating'
                     )}

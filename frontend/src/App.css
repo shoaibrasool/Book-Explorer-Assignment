@@ -1,31 +1,121 @@
-.root {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  background-color: #9F8260;
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.container {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+.header {
+  padding: 2.5rem 2rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--sand);
 }
 
 .heading {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #2d3748;
+  font-family: var(--serif);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--espresso);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  color: var(--taupe);
+  margin: 0.5rem 0 0;
+}
+
+.container {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 420px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--espresso);
+  background-color: var(--ivory);
+  border: 1px solid var(--sand);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInput::placeholder {
+  color: var(--taupe);
+}
+
+.searchInput:focus {
+  border-color: var(--walnut);
+  box-shadow: 0 0 0 3px rgba(81, 55, 35, 0.12);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 
 .statusMessage {
-  font-size: 1.25rem;
-  color: #4a5568;
+  font-size: 1.1rem;
+  color: var(--taupe);
   text-align: center;
   margin-top: 3rem;
+}
+
+.errorBox {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 1px solid var(--sand);
+  border-radius: 10px;
+  background-color: var(--ivory);
+}
+
+.errorText {
+  font-size: 1.1rem;
+  color: var(--warm-brown);
+  margin: 0 0 1.25rem;
+}
+
+.retryButton {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ivory);
+  background-color: var(--walnut);
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.retryButton:hover {
+  background-color: var(--mocha);
+}
+
+.footer {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  border-top: 1px solid var(--sand);
+}
+
+.footer p {
+  font-size: 0.8rem;
+  color: var(--taupe);
+  margin: 0;
 }
