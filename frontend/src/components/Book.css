@@ -1,53 +1,90 @@
-/* src/components/BookCard.module.css */
 .card {
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border: 1px solid var(--sand);
+  border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-color: #83573A;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: var(--ivory);
+  box-shadow: 0 2px 6px rgba(54, 31, 15, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 14px rgba(54, 31, 15, 0.12);
 }
 
 .cover {
   width: 100%;
-  height: 240px;
-  object-fit: cover;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  background-color: var(--ivory);
+  padding: 1rem;
+  box-sizing: border-box;
+  display: block;
+}
+
+.coverPlaceholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background-color: var(--ivory);
+  border-bottom: 1px solid var(--sand);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--taupe);
 }
 
 .content {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.3rem;
+  flex: 1;
 }
 
 .title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #1a202c;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--espresso);
 }
 
 .text {
   font-size: 0.875rem;
-  color: #4a5568;
+  color: var(--warm-brown);
+  margin: 0;
 }
 
 .subtext {
   font-size: 0.75rem;
-  color: #a0aec0;
+  color: var(--taupe);
+  margin: 0;
 }
 
 .rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 0.875rem;
   font-weight: 700;
-  color: #d69e2e;
-  margin-top: 0.5rem;
+  color: var(--espresso);
+  margin: 0.5rem 0 0;
+}
+
+.stars {
+  color: var(--walnut);
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.ratingValue {
+  color: var(--taupe);
+  font-weight: 600;
 }
