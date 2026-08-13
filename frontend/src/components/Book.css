@@ -1,0 +1,53 @@
+/* src/components/BookCard.module.css */
+.card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #83573A;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cover {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a202c;
+}
+
+.text {
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+.subtext {
+  font-size: 0.75rem;
+  color: #a0aec0;
+}
+
+.rating {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #d69e2e;
+  margin-top: 0.5rem;
+}
