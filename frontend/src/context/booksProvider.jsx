@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { fetchRatedBooksAPI } from '../api/bookService';
 import { BooksContext } from './booksContext';
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 8;
 
 export const BookProvider = ({ children }) => {
     const [books, setBooks] = useState([]);
